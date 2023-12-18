@@ -1,7 +1,7 @@
 # advent-of-code-2023
 This is my attempt at solving advent of code 2023 in a programming language I've never used before - rust.
 
-WARNING: There are no guarentees that any of the the code in this repository is idiomatic rust code.
+WARNING: There are no guarentees that any of the the code in this repository is idiomatic rust code, in fact I can probably give you the opposite guarentee.
 
 # Running the tasks
 Run this via `cargo run` e.g.
