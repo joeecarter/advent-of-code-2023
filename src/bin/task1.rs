@@ -10,20 +10,25 @@ fn main() {
     println!("filepath: {}", filepath);
 
     let f = File::open(filepath)
-        .expect("Should have been able to read the file");
+        .expect("should have been able to read the file");
     let reader = BufReader::new(f);
 
     let mut sum: u32 = 0;
     for line in reader.lines() {
         let actual_line = line.expect("should have line");
-        sum += extract_calibration_value(actual_line);
+
+        let calibration_val = extract_calibration_value(&actual_line);
+        sum += calibration_val;
+        println!("{} -> {} (sum: {})", actual_line, calibration_val, sum);
     }
 
-    println!("{}", sum)
+    println!("TOTAL: {}", sum)
 }
 
 
-fn extract_calibration_value(input: String) -> u32 {
+fn extract_calibration_value(input: &String) -> u32 {
+    // LEARNING NOTE: Since input is a reference this function can not mutate it.
+    // e.g. this fails: input.push_str(", world"); (see https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)
 
     let mut result: u32 = 0;
 
@@ -50,9 +55,6 @@ fn extract_calibration_value(input: String) -> u32 {
             }
         }
     }
-
-    // NOTE: I'd have put this in the loop in main but the borrow checker doesn't let me due to this function dropping the input variable once its done.
-    println!("{} -> {}", input, result);
 
     return result;
 }
