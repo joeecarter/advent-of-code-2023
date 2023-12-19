@@ -14,3 +14,4 @@ Heres some resources I found useful whilst learning rust:
 * https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html
 * https://doc.rust-lang.org/book/ch12-01-accepting-command-line-arguments.html
 * https://doc.rust-lang.org/cargo/reference/cargo-targets.html#binaries
+* https://doc.rust-lang.org/book/ch13-02-iterators.html
